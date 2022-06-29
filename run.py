@@ -9,4 +9,4 @@ if __name__ == "__main__":
     except IndexError:
         print("Please specify input/output file")
         sys.exit(1)
-    RobotRunner.main(inputFile, outputFile)
+    RobotRunner.run(inputFile, outputFile)

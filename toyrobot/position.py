@@ -4,5 +4,5 @@ class Position:
         self.x = x
         self.y = y
 
-    def add(self, position):
+    def add(self, position): 
         return Position(self.x + position.x, self.y + position.y)

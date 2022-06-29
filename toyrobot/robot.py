@@ -3,9 +3,11 @@ from toyrobot.direction import Direction
 
 
 class Robot:
-    def __init__(self, position, direction='NORTH', table_size=4):
+    """ This class is responsible to perform all robot actions. """
+
+    def __init__(self, position, direction='north', table_size=4):
         self.position = position
-        self.direction = direction.upper()
+        self.direction = direction
         self.table_size = table_size
 
     def is_valid_position(f):
@@ -18,14 +20,12 @@ class Robot:
 
     @is_valid_position
     def place(self, position, direction):
-        print('place', str(position.x), str(
-            position.y), direction)
+        """Updates the robot position only if its valid""" 
         self.position = position
-        self.direction = direction.upper()
+        self.direction = direction
         return self
 
     def move(self):
-        print("move",  Move[self.direction.lower()].value)
         newPosition = self.position.add(Move[self.direction.lower()].value)
         return self.place(newPosition, self.direction)
 
@@ -37,17 +37,15 @@ class Robot:
 
     @calculate_compass_degree
     def left(self, compass_degree):
-        print("LEFT", compass_degree)
-        new_compass_degree = compass_degree-90 if compass_degree != 0 else 270
+        """Calculates the new_degree based on the direction and updates the robot position""" 
+        new_compass_degree = compass_degree - 90 if compass_degree != 0 else 270
         return self.place(self.position, Direction(new_compass_degree).name)
 
     @calculate_compass_degree
     def right(self, compass_degree):
-        print("RIGHT")
+        """Calculates the new_degree based on the direction and updates the robot position""" 
         new_compass_degree = compass_degree + 90 if compass_degree != 270 else 0
         return self.place(self.position, Direction(new_compass_degree).name)
 
     def report(self):
-        print('REPORT', str(self.position.x), str(
-            self.position.y), self.direction)
-        return ' '.join([str(self.position.x), str(self.position.y), self.direction, '\n'])
+        return ' '.join([str(self.position.x), str(self.position.y), self.direction.upper(), '\n'])
