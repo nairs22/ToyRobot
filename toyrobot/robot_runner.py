@@ -23,7 +23,7 @@ class RobotRunner:
         
         try:
             with open(inputFile) as in_file, open(outputFile, 'w') as out_file:
-                #Checks whether the first line is a valid PLACE command
+                # Checks whether the first line is a valid PLACE command
                 first_line = next(in_file)
                 first_cmd = first_line.split()
                 is_valid_cmd = RobotRunner.check_valid_place_cmd(first_cmd)

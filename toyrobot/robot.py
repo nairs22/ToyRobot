@@ -3,9 +3,15 @@ from toyrobot.direction import Direction
 
 
 class Robot:
-    """ This class is responsible to perform all robot actions. """
+    """ This class is responsible to perform all robot actions. 
 
-    def __init__(self, position, direction='north', table_size=4):
+    Attributes:
+        position (object): Position of robot.
+        direction (str): Direction of robot.
+        table_size (int): Maximum size of the table. Default is 4. Table is a square.
+    """
+
+    def __init__(self, position, direction='north', table_size = 4):
         self.position = position
         self.direction = direction
         self.table_size = table_size
